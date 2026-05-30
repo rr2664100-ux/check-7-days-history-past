@@ -1,0 +1,66 @@
+from typing import Dict
+
+SETTINGS = {
+    "scan_interval_seconds": 8,
+    "event_poll_seconds": 20,
+    "process_poll_seconds": 5,
+    "browser_poll_seconds": 10,
+    "resource_poll_seconds": 3,
+    "network_poll_seconds": 5,
+    "startup_poll_seconds": 45,
+    "memory_scan_interval_seconds": 60,
+    "retention_days": 7,
+    "search_limit": 100,
+    "alert_retention": 200,
+    "cpu_warning_percent": 80,
+    "memory_warning_percent": 85,
+    "disk_warning_percent": 85,
+    "suspicious_connection_ports": [3389, 5900, 4444, 5555, 8080],
+    "remote_connection_threshold": 3,
+    "risk_score_base": 10,
+    "max_risk_score": 100,
+    "report_output_dir": "reports",
+}
+
+DEFAULT_DATABASE_SCHEMA = {
+    "events": [
+        ["id", "INTEGER PRIMARY KEY AUTOINCREMENT"],
+        ["timestamp", "TEXT"],
+        ["source", "TEXT"],
+        ["category", "TEXT"],
+        ["message", "TEXT"],
+        ["level", "TEXT"],
+    ],
+    "process_events": [
+        ["id", "INTEGER PRIMARY KEY AUTOINCREMENT"],
+        ["timestamp", "TEXT"],
+        ["process_name", "TEXT"],
+        ["pid", "INTEGER"],
+        ["path", "TEXT"],
+        ["cpu_percent", "REAL"],
+        ["memory_mb", "REAL"],
+        ["status", "TEXT"],
+    ],
+    "alerts": [
+        ["id", "INTEGER PRIMARY KEY AUTOINCREMENT"],
+        ["timestamp", "TEXT"],
+        ["alert_text", "TEXT"],
+        ["source", "TEXT"],
+        ["severity", "TEXT"],
+        ["risk_score", "INTEGER"],
+    ],
+    "recommendations": [
+        ["id", "INTEGER PRIMARY KEY AUTOINCREMENT"],
+        ["timestamp", "TEXT"],
+        ["recommendation", "TEXT"],
+        ["context", "TEXT"],
+    ],
+    "activities": [
+        ["id", "INTEGER PRIMARY KEY AUTOINCREMENT"],
+        ["timestamp", "TEXT"],
+        ["event_type", "TEXT"],
+        ["app_name", "TEXT"],
+        ["message", "TEXT"],
+        ["severity", "TEXT"],
+    ],
+}

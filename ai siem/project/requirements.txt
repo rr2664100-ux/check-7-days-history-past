@@ -1,0 +1,15 @@
+psutil
+pywin32
+wmi
+watchdog
+scapy
+pandas
+customtkinter
+PyQt6
+matplotlib
+yara-python
+pefile
+pyqtgraph
+pynput
+win10toast
+requests
